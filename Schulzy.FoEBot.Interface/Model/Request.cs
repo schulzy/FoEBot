@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Schulzy.FoEBot.Interface
+namespace Schulzy.FoEBot.Interface.Model
 {
-    public interface IDecoder
+    class Request
     {
-        void Decode();
     }
 }

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Schulzy.FoEBot.Interface
+namespace Schulzy.FoEBot.BL
 {
-    public interface IDecoder
+    class Tools
     {
-        void Decode();
     }
 }

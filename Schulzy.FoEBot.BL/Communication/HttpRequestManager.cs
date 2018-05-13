@@ -10,7 +10,7 @@ namespace Schulzy.FoEBot.BL.Communication
 
         public string LastResponse { protected set; get; }
 
-        CookieContainer m_cookies = new CookieContainer();
+        readonly CookieContainer m_cookies = new CookieContainer();
 
         internal string GetCookieValue(Uri siteUri, string name)
         {

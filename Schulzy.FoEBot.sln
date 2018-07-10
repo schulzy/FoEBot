@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schulzy.FoEBot.BL", "Schulz
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schulzy.FoEBot.DAL", "Schulzy.FoEBot.DAL\Schulzy.FoEBot.DAL.csproj", "{04ED0CFB-44A2-414E-8F01-FEAA2B06B724}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schulzy.FoEBot.BL.Test", "Schulzy.FoEBot.BL.Test\Schulzy.FoEBot.BL.Test.csproj", "{EF33EBE8-965C-40D4-A53B-5B6BABBA3DDF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{04ED0CFB-44A2-414E-8F01-FEAA2B06B724}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04ED0CFB-44A2-414E-8F01-FEAA2B06B724}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04ED0CFB-44A2-414E-8F01-FEAA2B06B724}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF33EBE8-965C-40D4-A53B-5B6BABBA3DDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF33EBE8-965C-40D4-A53B-5B6BABBA3DDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF33EBE8-965C-40D4-A53B-5B6BABBA3DDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF33EBE8-965C-40D4-A53B-5B6BABBA3DDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

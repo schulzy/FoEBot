@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Schulzy.FoEBot.Interface;
 
-namespace Schulzy.FoEBot.BL.Version1125
+namespace Schulzy.FoEBot.BL
 {
     public class Decoder : IDecoder
     {

@@ -5,16 +5,21 @@ using System.Text;
 
 namespace Schulzy.FoEBot.BL.Communication
 {
-    class HttpRequestManager
+    public class HttpRequestManager
     {
 
         public string LastResponse { protected set; get; }
 
-        readonly CookieContainer m_cookies = new CookieContainer();
+        public CookieContainer Cookies { get; } = new CookieContainer();
+        public WebHeaderCollection Header { get; } = new WebHeaderCollection();
+        public string UserAgent { get; set; }
+        public string Accept { get; set; }
+        public string ContentType { get; set; }
 
-        internal string GetCookieValue(Uri siteUri, string name)
+
+        public string GetCookieValue(Uri siteUri, string name)
         {
-            Cookie cookie = m_cookies.GetCookies(siteUri)[name];
+            Cookie cookie = Cookies.GetCookies(siteUri)[name];
             return cookie?.Value;
         }
 
@@ -90,10 +95,16 @@ namespace Schulzy.FoEBot.BL.Communication
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
             // Set the Method property of the request to POST.
             request.Method = method;
-            // Set cookie container to maintain m_cookies
-            request.CookieContainer = m_cookies;
+            // Set cookie container to maintain Cookies
+            request.CookieContainer = Cookies;
             request.AllowAutoRedirect = allowAutoRedirect;
             // If login is empty use defaul credentials
+
+            request.Accept = Accept;
+            request.Headers = Header;
+            
+            request.UserAgent = UserAgent;
+            request.ContentType = ContentType;
             if (string.IsNullOrEmpty(login))
             {
                 request.Credentials = CredentialCache.DefaultNetworkCredentials;
@@ -130,10 +141,10 @@ namespace Schulzy.FoEBot.BL.Communication
             try
             {
                 response = (HttpWebResponse)request.GetResponse();
-                m_cookies.Add(response.Cookies);
+                Cookies.Add(response.Cookies);
                 // Print the properties of each cookie.
                 Console.WriteLine("\nCookies: ");
-                foreach (Cookie cook in m_cookies.GetCookies(request.RequestUri))
+                foreach (Cookie cook in Cookies.GetCookies(request.RequestUri))
                 {
                     Console.WriteLine("Domain: {0}, String: {1}", cook.Domain, cook);
                 }

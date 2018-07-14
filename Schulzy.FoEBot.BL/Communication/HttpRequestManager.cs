@@ -2,10 +2,11 @@
 using System.IO;
 using System.Net;
 using System.Text;
+using Schulzy.FoEBot.Interface;
 
 namespace Schulzy.FoEBot.BL.Communication
 {
-    public class HttpRequestManager
+    public class HttpRequestManager : IHttpRequestManager
     {
 
         public string LastResponse { protected set; get; }

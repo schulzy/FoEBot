@@ -59,6 +59,10 @@
       <Project>{64e9793e-fd24-4cb8-bf35-d5a1eac55ef6}</Project>
       <Name>Schulzy.FoEBot.BL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Schulzy.FoEBot.Interface\Schulzy.FoEBot.Interface.csproj">
+      <Project>{da4efe05-0fde-4816-b479-bddb29703baf}</Project>
+      <Name>Schulzy.FoEBot.Interface</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -3,13 +3,14 @@ using System.Net;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Schulzy.FoEBot.BL.Communication;
+using Schulzy.FoEBot.Interface;
 
 namespace Schulzy.FoEBot.BL.Test
 {
     [TestClass]
     public class HttpRequestTest
     {
-        HttpRequestManager _manager = new HttpRequestManager();
+        IHttpRequestManager _manager = new HttpRequestManager();
         [TestMethod]
         public void PlayNowLogin()
         {

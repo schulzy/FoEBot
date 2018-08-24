@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Schulzy.FoEBot.Interface
 {
@@ -30,7 +26,5 @@ namespace Schulzy.FoEBot.Interface
 
         HttpWebRequest GeneratePostRequest(string uri, string content, string login, string password,
             bool allowAutoRedirect);
-
-
     }
 }

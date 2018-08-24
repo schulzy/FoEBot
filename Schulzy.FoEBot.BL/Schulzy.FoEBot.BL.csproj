@@ -71,8 +71,7 @@
     <Compile Include="PayloadCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestController.cs" />
-    <Compile Include="Tools.cs" />
-    <Compile Include="Version1127\Payload.cs" />
+    <Compile Include="Version1133\Payload.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Schulzy.FoEBot.Interface\Schulzy.FoEBot.Interface.csproj">

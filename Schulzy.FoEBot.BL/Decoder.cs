@@ -1,34 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using Schulzy.FoEBot.Interface;
+﻿using Schulzy.FoEBot.Interface;
 
 namespace Schulzy.FoEBot.BL
 {
     public class Decoder : IDecoder
     {
-        public string Signature { get; private set; }
-        private string m_fullText;
+        private readonly HashCreator _hashCreator;
+        private readonly string _fullText;
 
         public Decoder(string fullText)
         {
-            m_fullText = fullText;
+            _fullText = fullText;
+            _hashCreator = new HashCreator();
         }
 
         public Decoder(string userKey, string secret, string payload)
         {
-            m_fullText = userKey + secret + payload;
+            _fullText = userKey + secret + payload;
+            _hashCreator = new HashCreator();
         }
+
+        public string Signature { get; private set; }
 
         public void Decode()
         {
-            using (MD5 md5Hash = MD5.Create())
-            {
-                Signature = Tools.GetMd5Hash(md5Hash, m_fullText);
-            }
+            _hashCreator.GetMd5Hash(_fullText);
         }
     }
 }

@@ -4,8 +4,8 @@ namespace Schulzy.FoEBot.BL
 {
     public class Decoder : IDecoder
     {
-        private readonly HashCreator _hashCreator;
         private readonly string _fullText;
+        private readonly HashCreator _hashCreator;
 
         public Decoder(string fullText)
         {

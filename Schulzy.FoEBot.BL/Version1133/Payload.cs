@@ -3,7 +3,7 @@ using Schulzy.FoEBot.Interface;
 
 namespace Schulzy.FoEBot.BL.Version1133
 {
-    class Payload : IPayload
+    internal class Payload : IPayload
     {
         public string GetPayload(PayloadData data)
         {

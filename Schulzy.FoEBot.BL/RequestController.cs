@@ -6,9 +6,9 @@ namespace Schulzy.FoEBot.BL
 {
     public class RequestController
     {
-        private UnityContainer _container;
         private readonly IHttpRequestManager _httpRequestManager;
         private readonly string _uri = @"https://hu0.forgeofempires.com/";
+        private UnityContainer _container;
 
         public RequestController(UnityContainer container)
         {

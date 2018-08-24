@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Schulzy.FoEBot.BL
 {
-    internal class HashCreator
+    public class HashCreator
     {
         public string GetMd5Hash(string input)
         {

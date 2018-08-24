@@ -67,6 +67,7 @@
     <Compile Include="Communication\HttpRequestManager.cs" />
     <Compile Include="Communication\RequestManagerInitializer.cs" />
     <Compile Include="Decoder.cs" />
+    <Compile Include="HashCreator.cs" />
     <Compile Include="PayloadCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestController.cs" />

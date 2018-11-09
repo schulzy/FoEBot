@@ -14,7 +14,7 @@ namespace Schulzy.FoEBot.BL
         {
             _container = container;
             _httpRequestManager = container.Resolve<IHttpRequestManager>();
-            new RequestManagerInitializer().Initialize(_httpRequestManager, _uri);
+            new RequestManagerInitializer().InitializeCookies(_httpRequestManager, _uri);
         }
     }
 }

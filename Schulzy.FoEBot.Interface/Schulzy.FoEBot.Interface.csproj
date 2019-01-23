@@ -42,7 +42,11 @@
   <ItemGroup>
     <Compile Include="IDecoder.cs" />
     <Compile Include="IHttpRequestManager.cs" />
+    <Compile Include="Interface1.cs" />
     <Compile Include="IPayload.cs" />
+    <Compile Include="IProgramFlowManager.cs" />
+    <Compile Include="ISettings.cs" />
+    <Compile Include="ITaskManager.cs" />
     <Compile Include="PayloadData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

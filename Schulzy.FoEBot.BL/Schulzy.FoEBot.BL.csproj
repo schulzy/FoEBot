@@ -64,22 +64,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\ICommand.cs" />
-    <Compile Include="Commands\Login.cs" />
     <Compile Include="Communication\HttpRequestManager.cs" />
     <Compile Include="Communication\RequestManagerInitializer.cs" />
-    <Compile Include="Decoder.cs" />
-    <Compile Include="HashCreator.cs" />
+    <Compile Include="Managers\TaskManager.cs" />
+    <Compile Include="Settings\Settings.cs" />
+    <Compile Include="Tasks\PlayNowLoginTask.cs" />
+    <Compile Include="Temp\Decoder.cs" />
+    <Compile Include="Temp\HashCreator.cs" />
     <Compile Include="Modul\Registration.cs" />
-    <Compile Include="PayloadCreator.cs" />
+    <Compile Include="Temp\PayloadCreator.cs" />
+    <Compile Include="Managers\ProgramFlowManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequestController.cs" />
+    <Compile Include="Temp\RequestController.cs" />
     <Compile Include="Requests\BuildConnection.cs" />
     <Compile Include="Requests\Header.cs" />
     <Compile Include="Requests\StandardHeader.cs" />
-    <Compile Include="Utils\HeaderInitializer.cs" />
-    <Compile Include="Utils\HttpRequestConverter.cs" />
-    <Compile Include="Utils\IConverter.cs" />
+    <Compile Include="Utils\Helper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Schulzy.FoEBot.Interface\Schulzy.FoEBot.Interface.csproj">
@@ -88,11 +88,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="GameData.xml" />
-    <Content Include="UserData.xml" />
+    <Content Include="Settings\GameData.xml" />
+    <Content Include="Settings\UserData.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

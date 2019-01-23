@@ -9,12 +9,12 @@ namespace Schulzy.FoEBot.BL.Test
         public void TestMethod1()
         {
             string payload =
-                "[{\"requestId\":1,\"requestMethod\":\"getData\",\"requestClass\":\"StartupService\",\"requestData\":[],\"__class__\":\"ServerRequest\"}]";
-            string userkey = "8VeDq-mZ_rJOKjac4ASNr5j1";
-            string secret = "BPmkpdLgpRePZjT4bAHnfI+IqyTv3tkoZNBo9ZtUzjHaZCYiBxWTo9Nap4IZZmEDm66g9+NalSsNQbeqeieKCg==";
+                "[{\"__class__\":\"ServerRequest\",\"requestData\":[],\"requestClass\":\"StartupService\",\"requestMethod\":\"getData\",\"requestId\":1}]";
+            string userkey = "0TmPDOZ7ciiZjOnusowfMG3-";
+            string secret = "Rw7oeLIP29HTVWjgS3NG6UzoyfIoEtwUR3pY/if76FdLOZHUPRLGHVDRCkdk4zijAqv4YGXBtIbKKnDCn7/8+A==";
             HashCreator hashCreator = new HashCreator();
             string signature = hashCreator.GetMd5Hash( userkey + secret + payload);
-            Assert.Equals("580f062981", signature);
+            Assert.Equals("94bfbfa0ce", signature);
         }
     }
 }

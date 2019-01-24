@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace Schulzy.FoEBot.Interface
+namespace Schulzy.FoEBot.Interface.Communications
 {
     public interface IHttpRequestManager
     {

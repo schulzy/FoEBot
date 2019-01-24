@@ -40,15 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\FoeTaskStatus.cs" />
     <Compile Include="IDecoder.cs" />
-    <Compile Include="IHttpRequestManager.cs" />
-    <Compile Include="Interface1.cs" />
-    <Compile Include="IPayload.cs" />
+    <Compile Include="Communications\IHttpRequestManager.cs" />
+    <Compile Include="Task\ITask.cs" />
     <Compile Include="IProgramFlowManager.cs" />
     <Compile Include="ISettings.cs" />
-    <Compile Include="ITaskManager.cs" />
-    <Compile Include="PayloadData.cs" />
+    <Compile Include="Task\ITaskContainer.cs" />
+    <Compile Include="Task\ITaskManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

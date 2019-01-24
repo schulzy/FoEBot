@@ -1,4 +1,4 @@
-﻿namespace Schulzy.FoEBot.Interface
+﻿namespace Schulzy.FoEBot.Interface.Task
 {
     public interface ITaskManager
     {

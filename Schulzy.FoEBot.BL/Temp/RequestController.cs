@@ -1,5 +1,6 @@
 ﻿using Schulzy.FoEBot.BL.Communication;
 using Schulzy.FoEBot.Interface;
+using Schulzy.FoEBot.Interface.Communications;
 using Unity;
 
 namespace Schulzy.FoEBot.BL

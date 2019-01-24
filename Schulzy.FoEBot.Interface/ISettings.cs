@@ -4,5 +4,6 @@
     {
         string Secret { get; set; }
         string Token { get; set; }
+        string Gateway { get; set; }
     }
 }

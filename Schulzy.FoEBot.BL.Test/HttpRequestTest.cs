@@ -3,7 +3,7 @@ using System.Net;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Schulzy.FoEBot.BL.Communication;
-using Schulzy.FoEBot.Interface;
+using Schulzy.FoEBot.Interface.Communications;
 
 namespace Schulzy.FoEBot.BL.Test
 {

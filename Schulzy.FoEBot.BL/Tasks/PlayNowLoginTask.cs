@@ -1,46 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using Schulzy.FoEBot.BL.Communication;
 using Schulzy.FoEBot.BL.Utils;
 using Schulzy.FoEBot.Interface;
+using Schulzy.FoEBot.Interface.Communications;
+using Schulzy.FoEBot.Interface.Model;
+using Schulzy.FoEBot.Interface.Task;
 using Unity;
 
 namespace Schulzy.FoEBot.BL.Tasks
 {
-    class PlayNowLoginTask : ITask
+    internal class PlayNowLoginTask : ITask
     {
-        private int _priority;
-        private IRequestManagerInitializer _httpManagerInit;
         private string _uri;
         private IHttpRequestManager _httpManager;
-        private IUnityContainer _diContainer;
+        private readonly IUnityContainer _diContainer;
 
-        public int Priority
-        {
-            get { return _priority; }
-        }
+        public int Priority { get; }
 
         public PlayNowLoginTask(IUnityContainer diContainer)
         {
             _diContainer = diContainer;
-            _priority = 100;
-            _httpManager = diContainer.Resolve<IHttpRequestManager>();
-            _httpManagerInit = diContainer.Resolve<IRequestManagerInitializer>();
-            _uri = @"https://hu0.forgeofempires.com/start/index?action=play_now_login";
-            _httpManagerInit.InitializeCookies(_uri);
-            _httpManagerInit.InitializeHeader();
+            Priority = 100;
         }
 
         public void Run()
         {
+            _httpManager = _diContainer.Resolve<IHttpRequestManager>();
+            var _httpManagerInit = _diContainer.Resolve<IRequestManagerInitializer>();
+            _uri = @"https://hu0.forgeofempires.com/start/index?action=play_now_login";
+            _httpManagerInit.InitializeCookies(_uri);
+            _httpManagerInit.InitializeHeader();
             string content = "json=%7B%22world_id%22%3A%22hu2%22%7D";
             var response = _httpManager.SendPostRequest(_uri, content, null, null, false);
             InitToken(response);
         }
+
+        public FoeTaskStatus Status { get; } = FoeTaskStatus.NotStarted;
 
         private void InitToken(HttpWebResponse response)
         {
@@ -48,17 +44,14 @@ namespace Schulzy.FoEBot.BL.Tasks
             string tokenConst = "token=";
             var plainResponse = Helper.GetResponseAsString(response);
             int indexBegin = plainResponse.IndexOf(tokenConst, StringComparison.Ordinal);
-            if(indexBegin<0)
+            if (indexBegin < 0)
                 return;
-            int indexEnd = plainResponse.IndexOf("&", indexBegin , StringComparison.Ordinal);
-            if(indexEnd<0)
+            int indexEnd = plainResponse.IndexOf("\"}", indexBegin, StringComparison.Ordinal);
+            if (indexEnd < 0)
                 return;
 
-            var token = plainResponse.Substring(indexBegin + tokenConst.Length, indexEnd - indexBegin- tokenConst.Length);
+            var token = plainResponse.Substring(indexBegin, indexEnd - indexBegin);
             settings.Token = token;
-
         }
-
-        
     }
 }

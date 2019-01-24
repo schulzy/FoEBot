@@ -11,5 +11,6 @@ namespace Schulzy.FoEBot.BL.Settings
 
         public string Secret { get; set; } 
         public string Token { get; set; }
+        public string Gateway { get; set; }
     }
 }

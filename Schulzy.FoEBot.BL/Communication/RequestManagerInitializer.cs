@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Net;
 using Schulzy.FoEBot.Interface;
+using Schulzy.FoEBot.Interface.Communications;
 
 namespace Schulzy.FoEBot.BL.Communication
 {
     internal class RequestManagerInitializer : IRequestManagerInitializer
     {
-        private IHttpRequestManager _httpRequestManager;
+        private readonly IHttpRequestManager _httpRequestManager;
 
         public RequestManagerInitializer(IHttpRequestManager httpRequestManager)
         {
@@ -27,12 +28,20 @@ namespace Schulzy.FoEBot.BL.Communication
 
         public void InitializeCookies(string uri)
         {
-            _httpRequestManager.Cookies.Add(new Cookie("metricsUvId", "67476666-b328-4799-8d24-c1f9782cda5c") { Domain = new Uri(uri).Host });
-            _httpRequestManager.Cookies.Add(new Cookie("cid", "2054610294") { Domain = new Uri(uri).Host });
-            //_httpRequestManager.Cookies.Add(new Cookie("_ga", "GA1.2.546886856.1515696976") { Domain = new Uri(uri).Host });
-            _httpRequestManager.Cookies.Add(new Cookie("ig_conv_last_site", @"https://hu2.forgeofempires.com/game/index") { Domain = new Uri(uri).Host });
-            _httpRequestManager.Cookies.Add(new Cookie("mid", @"gTwKfh6C6K-47fPf1K5uhNU2wSmtA2jzgVlpqvpx") { Domain = new Uri(uri).Host });
-            _httpRequestManager.Cookies.Add(new Cookie("startup_microtime", @"1548275351309") { Domain = new Uri(uri).Host });
+            _httpRequestManager.Cookies.Add(
+                new Cookie("metricsUvId", "67476666-b328-4799-8d24-c1f9782cda5c") {Domain = new Uri(uri).Host});
+            _httpRequestManager.Cookies.Add(new Cookie("cid", "2054610294") {Domain = new Uri(uri).Host});
+            _httpRequestManager.Cookies.Add(
+                new Cookie("_ga", "GA1.2.546886856.1515696976") {Domain = new Uri(uri).Host});
+            _httpRequestManager.Cookies.Add(
+                new Cookie("ig_conv_last_site", @"https://hu2.forgeofempires.com/game/index")
+                {
+                    Domain = new Uri(uri).Host
+                });
+            _httpRequestManager.Cookies.Add(
+                new Cookie("mid", @"gTwKfh6C6K-47fPf1K5uhNU2wSmtA2jzgVlpqvpx") {Domain = new Uri(uri).Host});
+            _httpRequestManager.Cookies.Add(
+                new Cookie("startup_microtime", @"1548275351309") {Domain = new Uri(uri).Host});
         }
     }
 

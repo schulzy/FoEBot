@@ -1,5 +1,7 @@
 ﻿using Schulzy.FoEBot.BL.Communication;
 using Schulzy.FoEBot.Interface;
+using Schulzy.FoEBot.Interface.Communications;
+using Schulzy.FoEBot.Interface.Task;
 using Unity;
 
 namespace Schulzy.FoEBot.BL.Modul

@@ -2,12 +2,13 @@
 using System.Collections.Concurrent;
 using System.Linq;
 using Schulzy.FoEBot.Interface;
+using Schulzy.FoEBot.Interface.Task;
 
 namespace Schulzy.FoEBot.BL
 {
     public class TaskManager : ITaskManager
     {
-        private ConcurrentDictionary<Guid,ITask> _tasks = new ConcurrentDictionary<Guid, ITask>();
+        private readonly ConcurrentDictionary<Guid, ITask> _tasks = new ConcurrentDictionary<Guid, ITask>();
 
         public Status Status { get; private set; }
 
@@ -24,11 +25,9 @@ namespace Schulzy.FoEBot.BL
 
         public bool AddTask(ITask task)
         {
-            bool isAdded = _tasks.TryAdd(Guid.NewGuid(), task);
+            var isAdded = _tasks.TryAdd(Guid.NewGuid(), task);
             if (Status == Status.Idle)
-            {
                 InvokeTasks();
-            }
             return isAdded;
         }
 
@@ -36,7 +35,7 @@ namespace Schulzy.FoEBot.BL
         {
             while (GetTask(out ITask task))
             {
-                Status =Status.Running;
+                Status = Status.Running;
                 task.Run();
                 Status = Status.Pending;
             }
@@ -47,10 +46,10 @@ namespace Schulzy.FoEBot.BL
         private bool GetTask(out ITask task)
         {
             task = null;
-            bool isRemoved = false;
+            var isRemoved = false;
             if (_tasks.Count > 0)
             {
-                var keyValuePair = _tasks.OrderBy(x => x.Value.Priority).FirstOrDefault();
+                var keyValuePair = _tasks.OrderByDescending(x => x.Value.Priority).FirstOrDefault();
                 isRemoved = _tasks.TryRemove(keyValuePair.Key, out task);
             }
             return isRemoved;

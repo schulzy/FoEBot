@@ -8,5 +8,8 @@
     <Version name="1.142">
       <VersionSecret name="Rw7oeLIP29HTVWjgS3NG6UzoyfIoEtwUR3pY/if76FdLOZHUPRLGHVDRCkdk4zijAqv4YGXBtIbKKnDCn7/8+A==" />
     </Version>
+    <Version name="1.144">
+      <VersionSecret name="X2hSCLmVfPKbmWIMm88CfEokCPVIfhV1cooHcF4yopCUkfEQJ6IsaDWsZHkz1xTfWAOdWPn2Iwp6wbLmnJBElw==" />
+    </Version>
   </Versions>
 </GameData>

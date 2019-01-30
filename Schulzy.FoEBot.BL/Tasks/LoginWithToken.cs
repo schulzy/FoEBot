@@ -27,7 +27,7 @@ namespace Schulzy.FoEBot.BL.Tasks
             _httpManagerInit.InitializeHeader();
             Status = FoeTaskStatus.Running;
             var response = httpManager.SendGetRequest(uri, null, null, false);
-            var plainResponse = Helper.GetResponseAsString(response);
+            Helper.GetResponseAsString(response);
         }
 
         public FoeTaskStatus Status { get; private set; } = FoeTaskStatus.NotStarted;

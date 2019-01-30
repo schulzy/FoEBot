@@ -1,11 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿
+using NUnit.Framework;
 
 namespace Schulzy.FoEBot.BL.Test
 {
-    [TestClass]
+    [TestFixture]
     public class SignatureTest
     {
-        [TestMethod]
+        [Test]
         public void TestMethod1()
         {
             string payload =

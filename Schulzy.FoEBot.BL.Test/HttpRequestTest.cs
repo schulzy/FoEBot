@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Net;
 using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using Schulzy.FoEBot.BL.Communication;
 using Schulzy.FoEBot.Interface.Communications;
 
 namespace Schulzy.FoEBot.BL.Test
 {
-    [TestClass]
+    [TestFixture]
     public class HttpRequestTest
     {
         IHttpRequestManager _manager = new HttpRequestManager();
 
-        [TestMethod]
+        [Test]
         public void GameIndex()
         {
             string uri = @"https://hu2.forgeofempires.com/game/index?ref=";
@@ -23,7 +23,7 @@ namespace Schulzy.FoEBot.BL.Test
             string responseText = GetResponseAsString(response);
         }
 
-        [TestMethod]
+        [Test]
         public void StartNoSession()
         {
             string uri = @"https://hu0.forgeofempires.com/start?nosession";
@@ -34,7 +34,7 @@ namespace Schulzy.FoEBot.BL.Test
             string responseText = GetResponseAsString(response);
         }
 
-        [TestMethod]
+        [Test]
         public void PlayNowLogin()
         {
             string uri = @"https://hu0.forgeofempires.com/start/index?action=play_now_login";

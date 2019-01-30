@@ -25,8 +25,7 @@ namespace Schulzy.FoEBot.BL.Tasks
         {
             var httpManager = _diContainer.Resolve<IHttpRequestManager>();
             var _httpManagerInit = _diContainer.Resolve<IRequestManagerInitializer>();
-            var settings = _diContainer.Resolve<ISettings>();
-            var uri = @"https://hu2.forgeofempires.com/game/index?ref=" + settings.Token;
+            var uri = @"https://hu2.forgeofempires.com/game/index?ref=";
             _httpManagerInit.InitializeHeader();
             Status = FoeTaskStatus.Running;
             var response = httpManager.SendGetRequest(uri, null, null, false);
@@ -60,6 +59,7 @@ namespace Schulzy.FoEBot.BL.Tasks
                         if (indexEnd < 0)
                             return;
                         settings.Gateway = gatewayRaw.Substring(indexBegin, indexEnd - indexBegin); 
+                        break;
                     }
 
                 } while (line != null);

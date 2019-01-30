@@ -26,8 +26,7 @@ namespace Schulzy.FoEBot.BL.Tasks
             var uri = @"https://hu2.forgeofempires.com/game/login?" + settings.Token;
             _httpManagerInit.InitializeHeader();
             Status = FoeTaskStatus.Running;
-            var response = httpManager.SendGetRequest(uri, null, null, false);
-            Helper.GetResponseAsString(response);
+            httpManager.SendGetRequest(uri, null, null, false);
         }
 
         public FoeTaskStatus Status { get; private set; } = FoeTaskStatus.NotStarted;

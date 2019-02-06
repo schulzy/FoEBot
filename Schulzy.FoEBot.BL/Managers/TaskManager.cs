@@ -49,7 +49,7 @@ namespace Schulzy.FoEBot.BL
             var isRemoved = false;
             if (_tasks.Count > 0)
             {
-                var keyValuePair = _tasks.OrderByDescending(x => x.Value.Priority).FirstOrDefault();
+                var keyValuePair = _tasks.OrderBy(x => x.Value.Priority).FirstOrDefault();
                 isRemoved = _tasks.TryRemove(keyValuePair.Key, out task);
             }
             return isRemoved;

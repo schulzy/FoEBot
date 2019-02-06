@@ -1,19 +1,18 @@
 ﻿using Schulzy.FoEBot.BL.Communication;
-using Schulzy.FoEBot.BL.Utils;
 using Schulzy.FoEBot.Interface;
 using Schulzy.FoEBot.Interface.Communications;
 using Schulzy.FoEBot.Interface.Model;
 using Schulzy.FoEBot.Interface.Task;
 using Unity;
 
-namespace Schulzy.FoEBot.BL.Tasks
+namespace Schulzy.FoEBot.BL.Tasks.InitFoe
 {
-    internal class LoginWithToken : ITask
+    internal class LoginWithTokenTask : ITask
     {
         private readonly IUnityContainer _diContainer;
-        public int Priority { get; } = 99;
+        public int Priority { get; } = 2;
 
-        public LoginWithToken(IUnityContainer diContainer)
+        public LoginWithTokenTask(IUnityContainer diContainer)
         {
             _diContainer = diContainer;
         }

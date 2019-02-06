@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schulzy.FoEBot.Launcher", "Schulzy.FoEBot.Launcher\Schulzy.FoEBot.Launcher.csproj", "{F9F1A936-194A-4D10-9240-A12532BD3FBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schulzy.FoEBot.Launcher", "Schulzy.FoEBot.Launcher\Schulzy.FoEBot.Launcher.csproj", "{F9F1A936-194A-4D10-9240-A12532BD3FBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schulzy.FoEBot.Interface", "Schulzy.FoEBot.Interface\Schulzy.FoEBot.Interface.csproj", "{DA4EFE05-0FDE-4816-B479-BDDB29703BAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schulzy.FoEBot.Interface", "Schulzy.FoEBot.Interface\Schulzy.FoEBot.Interface.csproj", "{DA4EFE05-0FDE-4816-B479-BDDB29703BAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schulzy.FoEBot.BL", "Schulzy.FoEBot.BL\Schulzy.FoEBot.BL.csproj", "{64E9793E-FD24-4CB8-BF35-D5A1EAC55EF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schulzy.FoEBot.BL", "Schulzy.FoEBot.BL\Schulzy.FoEBot.BL.csproj", "{64E9793E-FD24-4CB8-BF35-D5A1EAC55EF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schulzy.FoEBot.DAL", "Schulzy.FoEBot.DAL\Schulzy.FoEBot.DAL.csproj", "{04ED0CFB-44A2-414E-8F01-FEAA2B06B724}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schulzy.FoEBot.DAL", "Schulzy.FoEBot.DAL\Schulzy.FoEBot.DAL.csproj", "{04ED0CFB-44A2-414E-8F01-FEAA2B06B724}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schulzy.FoEBot.BL.Test", "Schulzy.FoEBot.BL.Test\Schulzy.FoEBot.BL.Test.csproj", "{EF33EBE8-965C-40D4-A53B-5B6BABBA3DDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schulzy.FoEBot.BL.Test", "Schulzy.FoEBot.BL.Test\Schulzy.FoEBot.BL.Test.csproj", "{EF33EBE8-965C-40D4-A53B-5B6BABBA3DDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

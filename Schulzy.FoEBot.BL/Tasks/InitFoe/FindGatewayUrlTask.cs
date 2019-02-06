@@ -9,14 +9,14 @@ using Schulzy.FoEBot.Interface.Model;
 using Schulzy.FoEBot.Interface.Task;
 using Unity;
 
-namespace Schulzy.FoEBot.BL.Tasks
+namespace Schulzy.FoEBot.BL.Tasks.InitFoe
 {
-    public class FindGatewayUrl : ITask
+    public class FindGatewayUrlTask : ITask
     {
-        private IUnityContainer _diContainer;
-        public int Priority { get; } = 98;
+        private readonly IUnityContainer _diContainer;
+        public int Priority { get; } = 3;
 
-        public FindGatewayUrl(IUnityContainer diContainer)
+        public FindGatewayUrlTask(IUnityContainer diContainer)
         {
             _diContainer = diContainer;
         }

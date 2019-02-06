@@ -8,7 +8,7 @@ using Schulzy.FoEBot.Interface.Model;
 using Schulzy.FoEBot.Interface.Task;
 using Unity;
 
-namespace Schulzy.FoEBot.BL.Tasks
+namespace Schulzy.FoEBot.BL.Tasks.InitFoe
 {
     internal class PlayNowLoginTask : ITask
     {
@@ -21,7 +21,7 @@ namespace Schulzy.FoEBot.BL.Tasks
         public PlayNowLoginTask(IUnityContainer diContainer)
         {
             _diContainer = diContainer;
-            Priority = 100;
+            Priority = 1;
         }
 
         public void Run()

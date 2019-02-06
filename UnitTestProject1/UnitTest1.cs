@@ -1,10 +1,10 @@
-﻿
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Schulzy.FoEBot.BL;
 
-namespace Schulzy.FoEBot.BL.Test
+namespace UnitTestProject1
 {
     [TestClass]
-    public class SignatureTest
+    public class UnitTest1
     {
         [TestMethod]
         public void TestMethod1()

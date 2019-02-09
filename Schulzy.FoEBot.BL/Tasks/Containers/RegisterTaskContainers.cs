@@ -25,7 +25,7 @@ namespace Schulzy.FoEBot.BL.Tasks.Containers
             initFoe.AddTask(new PlayNowLoginTask(_diContainer));
             initFoe.AddTask(new LoginWithTokenTask(_diContainer));
             initFoe.AddTask(new FindGatewayUrlTask(_diContainer));
-            _diContainer.RegisterInstance<ITaskContainer>(TaskContainerNames.InitializeFoE, initFoe);
+            _diContainer.RegisterInstance<ITaskContainer>(Constant.TaskContainerNames.InitializeFoE, initFoe);
         }
     }
 }

@@ -1,7 +1,10 @@
 ﻿namespace Schulzy.FoEBot.BL.Constants
 {
-    internal static class TaskContainerNames
+    internal static partial class Constant
     {
-        public static string InitializeFoE = "InitializeFoE";
-    }
+        internal static class TaskContainerNames
+        {
+            public static string InitializeFoE = "InitializeFoE";
+        }
+    }   
 }

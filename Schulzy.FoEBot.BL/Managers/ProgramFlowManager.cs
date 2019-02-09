@@ -1,12 +1,10 @@
 ﻿using Schulzy.FoEBot.BL.Constants;
 using Schulzy.FoEBot.BL.Modul;
-using Schulzy.FoEBot.BL.Tasks;
-using Schulzy.FoEBot.BL.Tasks.InitFoe;
 using Schulzy.FoEBot.Interface;
 using Schulzy.FoEBot.Interface.Task;
 using Unity;
 
-namespace Schulzy.FoEBot.BL
+namespace Schulzy.FoEBot.BL.Managers
 {
     public class ProgramFlowManager : IProgramFlowManager
     {
@@ -23,7 +21,7 @@ namespace Schulzy.FoEBot.BL
             registration.RegisterAll(_unityContainer);
 
             var taskManager = _unityContainer.Resolve<ITaskManager>();
-            taskManager.AddTask(_unityContainer.Resolve<ITaskContainer>(TaskContainerNames.InitializeFoE));
+            taskManager.AddTask(_unityContainer.Resolve<ITaskContainer>(Constant.TaskContainerNames.InitializeFoE));
             
             taskManager.Start();
         }

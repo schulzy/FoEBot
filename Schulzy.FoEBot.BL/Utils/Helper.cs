@@ -8,12 +8,15 @@ namespace Schulzy.FoEBot.BL.Utils
         public static string GetResponseAsString(HttpWebResponse response)
         {
             var encoding = Encoding.ASCII;
-            string responseText;
-            using (var reader = new System.IO.StreamReader(response.GetResponseStream(), encoding))
+            string responseText = string.Empty;
+            var stream = response?.GetResponseStream();
+            if (stream != null)
             {
-                responseText = reader.ReadToEnd();
+                using (var reader = new System.IO.StreamReader(stream, encoding))
+                {
+                    responseText = reader.ReadToEnd();
+                }
             }
-
             return responseText;
         }
     }

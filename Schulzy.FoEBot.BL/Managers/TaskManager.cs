@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Linq;
-using Schulzy.FoEBot.Interface;
 using Schulzy.FoEBot.Interface.Task;
 
-namespace Schulzy.FoEBot.BL
+namespace Schulzy.FoEBot.BL.Managers
 {
     public class TaskManager : ITaskManager
     {

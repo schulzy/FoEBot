@@ -27,10 +27,10 @@ namespace Schulzy.FoEBot.BL.Tasks.InitFoe
         public void Run()
         {
             _httpManager = _diContainer.Resolve<IHttpRequestManager>();
-            var _httpManagerInit = _diContainer.Resolve<IRequestManagerInitializer>();
+            var httpManagerInit = _diContainer.Resolve<IRequestManagerInitializer>();
             _uri = @"https://hu0.forgeofempires.com/start/index?action=play_now_login";
-            _httpManagerInit.InitializeCookies(_uri);
-            _httpManagerInit.InitializeHeader();
+            httpManagerInit.InitializeCookies(_uri);
+            httpManagerInit.InitializeHeader();
             string content = "json=%7B%22world_id%22%3A%22hu2%22%7D";
             var response = _httpManager.SendPostRequest(_uri, content, null, null, false);
             InitToken(response);

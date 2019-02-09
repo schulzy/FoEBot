@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Net;
-using Schulzy.FoEBot.Interface;
 using Schulzy.FoEBot.Interface.Communications;
 
 namespace Schulzy.FoEBot.BL.Communication

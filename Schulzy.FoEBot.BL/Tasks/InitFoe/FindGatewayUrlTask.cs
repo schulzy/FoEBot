@@ -24,9 +24,9 @@ namespace Schulzy.FoEBot.BL.Tasks.InitFoe
         public void Run()
         {
             var httpManager = _diContainer.Resolve<IHttpRequestManager>();
-            var _httpManagerInit = _diContainer.Resolve<IRequestManagerInitializer>();
+            var httpManagerInit = _diContainer.Resolve<IRequestManagerInitializer>();
             var uri = @"https://hu2.forgeofempires.com/game/index?ref=";
-            _httpManagerInit.InitializeHeader();
+            httpManagerInit.InitializeHeader();
             Status = FoeTaskStatus.Running;
             var response = httpManager.SendGetRequest(uri, null, null, false);
             
@@ -39,13 +39,13 @@ namespace Schulzy.FoEBot.BL.Tasks.InitFoe
             var settings = _diContainer.Resolve<ISettings>();
             using (StringReader reader = new StringReader(plainResponse))
             {
-                string line = string.Empty;
+                string line;
                 do
                 {
                     line = reader.ReadLine();
                     if (line != null && line.Contains("string_gatewayUrl"))
                     {
-                        var elements = line.Split(new char[] {':'}, 2);
+                        var elements = line.Split(new[] {':'}, 2);
                         if (elements.Length != 2)
                         {
                             Status = FoeTaskStatus.Error;

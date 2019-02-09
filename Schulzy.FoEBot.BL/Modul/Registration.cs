@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using Schulzy.FoEBot.BL.Communication;
+﻿using Schulzy.FoEBot.BL.Communication;
+using Schulzy.FoEBot.BL.Managers;
 using Schulzy.FoEBot.BL.Tasks;
 using Schulzy.FoEBot.BL.Tasks.Containers;
 using Schulzy.FoEBot.Interface;
@@ -9,7 +9,6 @@ using Unity;
 
 namespace Schulzy.FoEBot.BL.Modul
 {
-    using System;
     using Settings;
     internal class Registration
     {

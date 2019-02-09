@@ -20,10 +20,10 @@ namespace Schulzy.FoEBot.BL.Tasks.InitFoe
         public void Run()
         {
             var httpManager = _diContainer.Resolve<IHttpRequestManager>();
-            var _httpManagerInit = _diContainer.Resolve<IRequestManagerInitializer>();
+            var httpManagerInit = _diContainer.Resolve<IRequestManagerInitializer>();
             var settings = _diContainer.Resolve<ISettings>();
             var uri = @"https://hu2.forgeofempires.com/game/login?" + settings.Token;
-            _httpManagerInit.InitializeHeader();
+            httpManagerInit.InitializeHeader();
             Status = FoeTaskStatus.Running;
             httpManager.SendGetRequest(uri, null, null, false);
         }

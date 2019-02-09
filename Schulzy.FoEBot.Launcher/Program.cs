@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Schulzy.FoEBot.BL;
 using Schulzy.FoEBot.BL.Communication;
+using Schulzy.FoEBot.BL.Managers;
 using Schulzy.FoEBot.Interface;
 using Unity;
 

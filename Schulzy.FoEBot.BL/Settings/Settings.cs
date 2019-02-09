@@ -6,7 +6,7 @@ namespace Schulzy.FoEBot.BL.Settings
     {
         public Settings()
         {
-            Secret = @"X2hSCLmVfPKbmWIMm88CfEokCPVIfhV1cooHcF4yopCUkfEQJ6IsaDWsZHkz1xTfWAOdWPn2Iwp6wbLmnJBElw==";
+            Secret = @"5ojZ7ltWda/CMrY6IhVwdvAMYK9Gy5QLIdrSDitg9/ugY9y8YL8haQp7ZR6EXZo182gNenXv0Er4F2p1myI0MA==";
         }
 
         public string Secret { get; set; } 

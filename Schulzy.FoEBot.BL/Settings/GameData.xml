@@ -11,5 +11,8 @@
     <Version name="1.144">
       <VersionSecret name="X2hSCLmVfPKbmWIMm88CfEokCPVIfhV1cooHcF4yopCUkfEQJ6IsaDWsZHkz1xTfWAOdWPn2Iwp6wbLmnJBElw==" />
     </Version>
+    <Version name="1.145">
+      <VersionSecret name ="5ojZ7ltWda/CMrY6IhVwdvAMYK9Gy5QLIdrSDitg9/ugY9y8YL8haQp7ZR6EXZo182gNenXv0Er4F2p1myI0MA=="/>
+    </Version>
   </Versions>
 </GameData>

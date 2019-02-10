@@ -1,4 +1,5 @@
-﻿using Schulzy.FoEBot.BL.Constants;
+﻿using System.Timers;
+using Schulzy.FoEBot.BL.Constants;
 using Schulzy.FoEBot.BL.Modul;
 using Schulzy.FoEBot.Interface;
 using Schulzy.FoEBot.Interface.Task;
@@ -9,6 +10,7 @@ namespace Schulzy.FoEBot.BL.Managers
     public class ProgramFlowManager : IProgramFlowManager
     {
         private readonly UnityContainer _unityContainer;
+        private ITaskManager _taskManager;
 
         public ProgramFlowManager()
         {
@@ -20,10 +22,34 @@ namespace Schulzy.FoEBot.BL.Managers
             var registration = new Registration();
             registration.RegisterAll(_unityContainer);
 
-            var taskManager = _unityContainer.Resolve<ITaskManager>();
-            taskManager.AddTask(_unityContainer.Resolve<ITaskContainer>(Constant.TaskContainerNames.InitializeFoE));
-            
-            taskManager.Start();
+            _taskManager = _unityContainer.Resolve<ITaskManager>();
+            _taskManager.AddTask(_unityContainer.Resolve<ITaskContainer>(Constant.TaskContainerNames.InitializeFoE));
+
+            StartRecuringTasks();
+
+            _taskManager.Start();
+        }
+
+        private void StartRecuringTasks()
+        {
+            StartBronzAge5MinuteTask();
+        }
+
+        private void StartBronzAge5MinuteTask()
+        {
+            Timer timer = new Timer
+            {
+                Interval = 305000,
+                //Interval =30000,
+                AutoReset = true
+            };
+            timer.Elapsed += BronzAge5MinuteTask;
+            timer.Start();
+        }
+
+        private void BronzAge5MinuteTask(object sender, ElapsedEventArgs e)
+        {
+            _taskManager.AddTask(_unityContainer.Resolve<ITaskContainer>(Constant.TaskContainerNames.BronzAgeHarvest));
         }
     }
 }

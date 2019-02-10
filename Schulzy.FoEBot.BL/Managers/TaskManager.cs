@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Linq;
+using System.Threading;
 using Schulzy.FoEBot.Interface.Task;
 
 namespace Schulzy.FoEBot.BL.Managers
@@ -9,17 +10,22 @@ namespace Schulzy.FoEBot.BL.Managers
     {
         private readonly ConcurrentDictionary<Guid, ITask> _tasks = new ConcurrentDictionary<Guid, ITask>();
 
+        private AutoResetEvent _autoResetEvent;
+
         public Status Status { get; private set; }
 
         public void Start()
         {
+            _autoResetEvent = new AutoResetEvent(false);
             Status = Status.Idle;
             InvokeTasks();
+            _autoResetEvent.WaitOne();
         }
 
         public void Stop()
         {
             Status = Status.Stopped;
+            _autoResetEvent.Set();
         }
 
         public bool AddTask(ITask task)

@@ -13,11 +13,23 @@ namespace Schulzy.FoEBot.BL.Communication
             _httpRequestManager = httpRequestManager;
         }
 
-        public void InitializeHeader()
+        public void InitializeHeader(string signature = null)
         {
-            _httpRequestManager.Header.Add("Origin", @"https://hu0.forgeofempires.com");
+            _httpRequestManager.Header.Clear();
             _httpRequestManager.Header.Add("X-Requested-With", "XMLHttpRequest");
             _httpRequestManager.Header.Add(@"Accept-Encoding", "gzip, deflate, br");
+            if (signature != null)
+            {
+                _httpRequestManager.Header.Add("Signature", signature);
+                _httpRequestManager.Header.Add("Origin", @"hu2.forgeofempires.com");
+                _httpRequestManager.Header.Add("Connection","keep-alive");
+                _httpRequestManager.Header.Add("Client-Identification", "version=1.145; requiredVersion=1.145; platform=bro; platformType=html5; platformVersion=web");
+
+            }
+            else
+            {
+                _httpRequestManager.Header.Add("Origin", @"https://hu0.forgeofempires.com");
+            }
             _httpRequestManager.Header.Add(@"Accept-Language", "en-US,en;q=0.9,hu;q=0.8,de;q=0.7,en-GB;q=0.6");
             _httpRequestManager.UserAgent =
                 @"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36";
@@ -46,7 +58,7 @@ namespace Schulzy.FoEBot.BL.Communication
 
     internal interface IRequestManagerInitializer
     {
-        void InitializeHeader();
+        void InitializeHeader(string signature = null);
 
         void InitializeCookies(string uri);
     }

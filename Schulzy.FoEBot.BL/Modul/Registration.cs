@@ -2,8 +2,10 @@
 using Schulzy.FoEBot.BL.Managers;
 using Schulzy.FoEBot.BL.Tasks;
 using Schulzy.FoEBot.BL.Tasks.Containers;
+using Schulzy.FoEBot.BL.Utils;
 using Schulzy.FoEBot.Interface;
 using Schulzy.FoEBot.Interface.Communications;
+using Schulzy.FoEBot.Interface.Manager;
 using Schulzy.FoEBot.Interface.Task;
 using Unity;
 
@@ -22,7 +24,8 @@ namespace Schulzy.FoEBot.BL.Modul
 
         private void RegisterTaskContainers(IUnityContainer diContainer)
         {
-            new RegisterTaskContainers(diContainer).Initialize();
+            new FoeInitializeTaskContainer(diContainer).Initialize();
+            new BronzAgeProductionContainer(diContainer).Initialize();
         }
 
         private void RegisterTaskManagement(IUnityContainer diContainer)
@@ -38,6 +41,8 @@ namespace Schulzy.FoEBot.BL.Modul
         }
         void RegisterHelpers(IUnityContainer diContainer)
         {
+            diContainer.RegisterInstance<IRequestIdManager>(new RequestIdManager());
+            diContainer.RegisterType<IHashCreator, HashCreator>();
             diContainer.RegisterInstance<ISettings>(new Settings());
             diContainer.RegisterType<IRequestManagerInitializer, RequestManagerInitializer>();
         }

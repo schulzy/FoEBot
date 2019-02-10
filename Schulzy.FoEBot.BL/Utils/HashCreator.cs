@@ -1,10 +1,25 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
+using Schulzy.FoEBot.Interface;
 
-namespace Schulzy.FoEBot.BL
+namespace Schulzy.FoEBot.BL.Utils
 {
-    public class HashCreator
+    public class HashCreator : IHashCreator
     {
+        private ISettings _settings;
+
+        public HashCreator(ISettings settings)
+        {
+            _settings = settings;
+        }
+
+        public string GetSignature(string input)
+        {
+            var spiltText = "json?h=";
+            var pureGateway = _settings.Gateway.Split(spiltText)[1];
+            return GetMd5Hash(pureGateway + _settings.Secret + input).Substring(0, 10);
+        }
+
         public string GetMd5Hash(string input)
         {
             using (var md5Hash = MD5.Create())

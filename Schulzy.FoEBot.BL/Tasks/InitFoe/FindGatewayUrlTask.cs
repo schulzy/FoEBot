@@ -55,10 +55,10 @@ namespace Schulzy.FoEBot.BL.Tasks.InitFoe
                         int indexBegin = gatewayRaw.IndexOf("'", StringComparison.Ordinal);
                         if (indexBegin < 0)
                             return;
-                        int indexEnd = gatewayRaw.IndexOf("'", indexBegin+1, StringComparison.Ordinal);
+                        int indexEnd = gatewayRaw.IndexOf("'", indexBegin + 1, StringComparison.Ordinal);
                         if (indexEnd < 0)
                             return;
-                        settings.Gateway = gatewayRaw.Substring(indexBegin, indexEnd - indexBegin); 
+                        settings.Gateway = gatewayRaw.Substring(indexBegin + 1, indexEnd - indexBegin - 1);
                         break;
                     }
 

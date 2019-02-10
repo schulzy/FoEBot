@@ -5,11 +5,11 @@ using Unity;
 
 namespace Schulzy.FoEBot.BL.Tasks.Containers
 {
-    class RegisterTaskContainers 
+    class FoeInitializeTaskContainer 
     {
         private IUnityContainer _diContainer;
 
-        public RegisterTaskContainers(IUnityContainer diContainer)
+        public FoeInitializeTaskContainer(IUnityContainer diContainer)
         {
             _diContainer = diContainer;
         }
@@ -25,6 +25,7 @@ namespace Schulzy.FoEBot.BL.Tasks.Containers
             initFoe.AddTask(new PlayNowLoginTask(_diContainer));
             initFoe.AddTask(new LoginWithTokenTask(_diContainer));
             initFoe.AddTask(new FindGatewayUrlTask(_diContainer));
+            initFoe.AddTask(new InitAllDataTask(_diContainer));
             _diContainer.RegisterInstance<ITaskContainer>(Constant.TaskContainerNames.InitializeFoE, initFoe);
         }
     }

@@ -12,8 +12,9 @@ namespace Schulzy.FoEBot.BL.Tasks
 
         public void Run()
         {
+            var copyQueue = new Queue<ITask>(_tasks);
             Status = FoeTaskStatus.Running;
-            while (_tasks.TryDequeue(out ITask task))
+            while (copyQueue.TryDequeue(out ITask task))
             {
                 task.Run();
                 if (Status != FoeTaskStatus.Error)

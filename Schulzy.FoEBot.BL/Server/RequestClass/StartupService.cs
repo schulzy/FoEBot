@@ -8,10 +8,10 @@ namespace Schulzy.FoEBot.BL.Server.RequestClass
         [MethodName("getData")]
         public void GetData(IRequestIdManager requestManager)
         {
-            Request.requestClass = "StartupService";
-            Request.requestMethod = GetRequestedMethod();
-            Request.requestData = new JArray();
-            Request.requestId = requestManager.GetNextId;
+            SetRequestClass("StartupService");
+            SetRequestMethod(GetRequestedMethod());
+            SetData(new JArray());
+            SetId(requestManager.GetNextId);
         }
     }
 }

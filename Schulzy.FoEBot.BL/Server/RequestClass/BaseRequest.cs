@@ -7,17 +7,17 @@ namespace Schulzy.FoEBot.BL.Server.RequestClass
 {
     internal class BaseRequest
     {
-        protected dynamic Request { get; set; } = new JObject();
+        private dynamic Request { get; set; } = new JObject();
 
         public string JsonString => "[" + JsonConvert.SerializeObject(Request) + "]";
 
         public BaseRequest()
         {
-            Request.__class__ = "ServerRequest";
-            Request.requestData = "";
-            Request.requestClass = "";
-            Request.requestMethod = "";
-            Request.requestId = "";
+            SetClass("ServerRequest");
+            SetData("");
+            SetRequestClass("");
+            SetRequestMethod("");
+            SetId("");
         }
 
         protected string GetRequestedMethod()
@@ -26,6 +26,31 @@ namespace Schulzy.FoEBot.BL.Server.RequestClass
             MethodBase method = stackTrace.GetFrame(1).GetMethod();
             MethodNameAttribute attribute = (MethodNameAttribute)method.GetCustomAttributes(typeof(MethodNameAttribute), true)[0];
             return attribute.Name;
+        }
+        
+        protected void SetRequestClass(dynamic className)
+        {
+            Request.requestClass = className;
+        }
+
+        protected void SetRequestMethod(dynamic method)
+        {
+            Request.requestMethod = method;
+        }
+
+        protected void SetData(dynamic data)
+        {
+            Request.requestData = data;
+        }
+
+        protected void SetId(dynamic id)
+        {
+            Request.requestId = id;
+        }
+
+        private void SetClass(dynamic serverClass)
+        {
+            Request.__class__ = serverClass;
         }
     }
 }

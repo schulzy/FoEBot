@@ -8,19 +8,19 @@ namespace Schulzy.FoEBot.BL.Server.RequestClass
         [MethodName("startProduction")]
         public void StartProduction(IRequestIdManager requestManager,int buildingId, int productLenght=1)
         {
-            Request.requestClass = "CityProductionService";
-            Request.requestMethod = GetRequestedMethod();
-            Request.requestData = new JArray() {buildingId, productLenght};
-            Request.requestId = requestManager.GetNextId;
+            SetRequestClass("CityProductionService");
+            SetRequestMethod(GetRequestedMethod());
+            SetData(new JArray() { buildingId, productLenght });
+            SetId(requestManager.GetNextId);
         }
 
         [MethodName("pickupProduction")]
         public void PickupProduction(IRequestIdManager requestManager, params int[] buildingId)
         {
-            Request.requestClass = "CityProductionService";
-            Request.requestMethod = GetRequestedMethod();
-            Request.requestData = new JArray() {new JArray() {buildingId}};
-            Request.requestId = requestManager.GetNextId;
+            SetRequestClass("CityProductionService");
+            SetRequestMethod(GetRequestedMethod());
+            SetData(new JArray() {new JArray() {buildingId}});
+            SetId(requestManager.GetNextId);
         }
     }
 }

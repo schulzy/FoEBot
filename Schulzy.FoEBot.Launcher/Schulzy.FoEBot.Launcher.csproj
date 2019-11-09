@@ -1,17 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
+	<PropertyGroup>
 	<OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
-  </PropertyGroup>
+		<TargetFramework>netcoreapp3.0</TargetFramework>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Schulzy.FoEBot.BL\Schulzy.FoEBot.BL.csproj" />
+	<ItemGroup>
+		<ProjectReference Include="..\Schulzy.FoEBot.BL\Schulzy.FoEBot.BL.csproj" />
 	<ProjectReference Include="..\Schulzy.FoEBot.Interface\Schulzy.FoEBot.Interface.csproj" />
-  </ItemGroup>
+	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-  
+	<ItemGroup>
+		<Folder Include="Properties\" />
+	</ItemGroup>
+	
 </Project>

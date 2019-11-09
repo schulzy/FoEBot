@@ -17,8 +17,8 @@ namespace Schulzy.FoEBot.BL.Tasks
             while (copyQueue.TryDequeue(out ITask task))
             {
                 task.Run();
-                if (Status != FoeTaskStatus.Error)
-                    Status = task.Status;
+                if (task.Status.HasFlag(FoeTaskStatus.LoginIssue))
+                    Status |= task.Status;
             }
         }
 

@@ -26,6 +26,9 @@ namespace Schulzy.FoEBot.BL.Managers
             _taskManager.AddTask(_unityContainer.Resolve<ITaskContainer>(Constant.TaskContainerNames.InitializeFoE));
 
             StartRecuringTasks();
+            _taskManager.LoginIssueOccurred +=
+                (sender, args) => _taskManager.AddTask(
+                    _unityContainer.Resolve<ITaskContainer>(Constant.TaskContainerNames.InitializeFoE));
 
             _taskManager.Start();
         }
@@ -40,16 +43,22 @@ namespace Schulzy.FoEBot.BL.Managers
             Timer timer = new Timer
             {
                 Interval = 305000,
-                //Interval =30000,
+                //Interval =90000,
                 AutoReset = true
             };
-            timer.Elapsed += BronzAge5MinuteTask;
+            //timer.Elapsed += BronzAge5MinuteTask;
+            timer.Elapsed += Vikink5MinuteTask;
             timer.Start();
         }
 
         private void BronzAge5MinuteTask(object sender, ElapsedEventArgs e)
         {
             _taskManager.AddTask(_unityContainer.Resolve<ITaskContainer>(Constant.TaskContainerNames.BronzAgeHarvest));
+        }
+
+        private void Vikink5MinuteTask(object sender, ElapsedEventArgs e)
+        {
+            _taskManager.AddTask(_unityContainer.Resolve<ITaskContainer>(Constant.TaskContainerNames.VikingProduktion));
         }
     }
 }

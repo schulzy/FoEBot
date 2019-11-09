@@ -6,6 +6,7 @@
         {
             public static string InitializeFoE = "InitializeFoE";
             public static string BronzAgeHarvest = "BronzAgeHarvest";
+            public static string VikingProduktion = "VikingProduktion";
         }
     }   
 }

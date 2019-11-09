@@ -1,15 +1,16 @@
 ﻿using Schulzy.FoEBot.BL.Constants;
 using Schulzy.FoEBot.BL.Tasks.Production;
+using Schulzy.FoEBot.BL.Tasks.Production.Cultural;
 using Schulzy.FoEBot.Interface.Task;
 using Unity;
 
 namespace Schulzy.FoEBot.BL.Tasks.Containers
 {
-    public class BronzAgeProductionContainer
+    public class VikingProductionContainer
     {
-        private IUnityContainer _diContainer;
+        private readonly IUnityContainer _diContainer;
 
-        public BronzAgeProductionContainer(IUnityContainer diContainer)
+        public VikingProductionContainer(IUnityContainer diContainer)
         {
             _diContainer = diContainer;
         }
@@ -21,10 +22,10 @@ namespace Schulzy.FoEBot.BL.Tasks.Containers
 
         private void Setup()
         {
-            var bronzAgeHarvest = _diContainer.Resolve<TaskContainer>();
-            bronzAgeHarvest.AddTask(new BronzAgePickupProduction(_diContainer));
-            bronzAgeHarvest.AddTask(new BronzAgeStartProduction(_diContainer));
-            _diContainer.RegisterInstance<ITaskContainer>(Constant.TaskContainerNames.BronzAgeHarvest, bronzAgeHarvest);
+            var vikingHarvest = _diContainer.Resolve<TaskContainer>();
+            vikingHarvest.AddTask(new VikingCityCulturalPickupProduction(_diContainer));
+            vikingHarvest.AddTask(new VikingCityCulturalStartProduction(_diContainer));
+            _diContainer.RegisterInstance<ITaskContainer>(Constant.TaskContainerNames.VikingProduktion, vikingHarvest);
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 using System.Linq;
 using System.Threading;
+using Schulzy.FoEBot.Interface.Model;
 using Schulzy.FoEBot.Interface.Task;
 
 namespace Schulzy.FoEBot.BL.Managers
@@ -12,6 +13,7 @@ namespace Schulzy.FoEBot.BL.Managers
 
         private AutoResetEvent _autoResetEvent;
 
+        public event EventHandler LoginIssueOccurred;
         public Status Status { get; private set; }
 
         public void Start()
@@ -42,6 +44,8 @@ namespace Schulzy.FoEBot.BL.Managers
             {
                 Status = Status.Running;
                 task.Run();
+                if (task.Status.HasFlag(FoeTaskStatus.LoginIssue))
+                    LoginIssueOccurred?.Invoke(this, EventArgs.Empty);
                 Status = Status.Pending;
             }
 

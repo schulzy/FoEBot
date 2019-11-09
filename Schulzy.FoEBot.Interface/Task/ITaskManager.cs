@@ -1,7 +1,11 @@
-﻿namespace Schulzy.FoEBot.Interface.Task
+﻿using System;
+
+namespace Schulzy.FoEBot.Interface.Task
 {
     public interface ITaskManager
     {
+        event EventHandler LoginIssueOccurred;
+
         /// <summary>
         /// Get the status of the task manager
         /// </summary>

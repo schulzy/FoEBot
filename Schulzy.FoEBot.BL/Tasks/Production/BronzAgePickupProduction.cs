@@ -2,10 +2,12 @@
 using System.Net;
 using Schulzy.FoEBot.BL.Communication;
 using Schulzy.FoEBot.BL.Server.RequestClass;
+using Schulzy.FoEBot.BL.Utils;
 using Schulzy.FoEBot.Interface;
 using Schulzy.FoEBot.Interface.Communications;
 using Schulzy.FoEBot.Interface.Manager;
 using Schulzy.FoEBot.Interface.Model;
+using Schulzy.FoEBot.Interface.ResponseProcessor;
 using Schulzy.FoEBot.Interface.Task;
 using Unity;
 
@@ -41,14 +43,18 @@ namespace Schulzy.FoEBot.BL.Tasks.Production
 
                 var response = httpManager.SendPostRequest(uri, request, null, null, false);
                 ProcessResponse(response);
-                if (Status == FoeTaskStatus.Error)
+                if (Status == FoeTaskStatus.Error || Status == FoeTaskStatus.LoginIssue)
                     break;
             }
         }
 
         private void ProcessResponse(HttpWebResponse response)
         {
-            throw new System.NotImplementedException();
+            var noSessionCheck = _diContainer.Resolve<INoSessionResponse>();
+            var plainResponse = Helper.GetResponseAsString(response);
+
+            if (!noSessionCheck.HasActiveSession(plainResponse))
+                Status |= FoeTaskStatus.LoginIssue;
         }
 
         public FoeTaskStatus Status { get; private set; } = FoeTaskStatus.NotStarted;

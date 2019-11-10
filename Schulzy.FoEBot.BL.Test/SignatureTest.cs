@@ -47,6 +47,18 @@ namespace Schulzy.FoEBot.BL.Test
         }
 
         [TestMethod]
+        public void Version_1_164()
+        {
+            string payload =
+                "[{\"__class__\":\"ServerRequest\",\"requestData\":[],\"requestClass\":\"StartupService\",\"requestMethod\":\"getData\",\"requestId\":1}]";
+            string userkey = "lNQgc3zbl3VBLZ-8NXMtFtkm";
+            string secret = "XJ18e9tTgdV5pP6TlHBUah/7sYLewDfTGdoe0Z/bPI+S882zTj8DJHftS19opvb6jSWnbgaJmwAvJDd7m1pLrQ==";
+            HashCreator hashCreator = new HashCreator(_settings);
+            string signature = hashCreator.GetMd5Hash(userkey + secret + payload);
+            Assert.AreEqual("7047085c4f", signature.Substring(0, 10));
+        }
+
+        [TestMethod]
         public void Version_1_145_2()
         {
             string payload =

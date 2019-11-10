@@ -12,7 +12,10 @@
       <VersionSecret name="X2hSCLmVfPKbmWIMm88CfEokCPVIfhV1cooHcF4yopCUkfEQJ6IsaDWsZHkz1xTfWAOdWPn2Iwp6wbLmnJBElw==" />
     </Version>
     <Version name="1.145">
-      <VersionSecret name ="5ojZ7ltWda/CMrY6IhVwdvAMYK9Gy5QLIdrSDitg9/ugY9y8YL8haQp7ZR6EXZo182gNenXv0Er4F2p1myI0MA=="/>
+      <VersionSecret name="5ojZ7ltWda/CMrY6IhVwdvAMYK9Gy5QLIdrSDitg9/ugY9y8YL8haQp7ZR6EXZo182gNenXv0Er4F2p1myI0MA=="/>
+    </Version>
+    <Version name="1.164">
+      <VersionSecret name="XJ18e9tTgdV5pP6TlHBUah/7sYLewDfTGdoe0Z/bPI+S882zTj8DJHftS19opvb6jSWnbgaJmwAvJDd7m1pLrQ=="/>
     </Version>
   </Versions>
 </GameData>
